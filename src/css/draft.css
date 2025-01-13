@@ -1,0 +1,137 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    height: 80vh;
+}
+
+.team1{
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border-color: blue;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.team1 h2{
+    text-align: center;
+    color: blue;
+}
+
+.team2{
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border-color: red;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.team2 h2{
+    text-align: center;
+    color: red;
+}
+
+.remaining-players{
+    width: 45%;
+    pad: 10px;
+    /* border: 1px solid #ccc; */
+    text-align: center;
+    height: 100%;
+}
+
+.remaining-players ul{
+    list-style: none;
+    padding: 0;
+}
+
+.remaining-players li{
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    transition: background-color 0.3s;
+}
+.remaining-players li:hover{
+    background-color: #e2e2e2;
+}
+
+.team1 ul{
+    list-style: none;
+    padding: 0;
+}
+
+.t1-player1{
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid blue;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+    transition: background-color 0.3s;
+}
+
+.team2 ul{
+    list-style: none;
+    padding: 0;
+}
+
+.t2-player2{
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+}
+
+.captain1{
+    font-weight: bold;
+    background-color: navy;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid blue;
+    border-radius: 4px;
+}
+.captain1 span{
+    font-size: 12px;
+}
+
+.captain2{
+    font-weight: bold;
+    background-color: maroon;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 4px;
+}
+.captain2 span{
+    font-size: 12px;
+}
+
+.fixed-button{
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}

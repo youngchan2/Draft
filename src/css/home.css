@@ -1,0 +1,30 @@
+.home{
+    text-align: center;
+}
+
+.home-button{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.home-option{
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+}
+
+.home-option:hover{
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+.home-option:active{
+    background-color: #3e8e41;
+    transform: scale(1);
+}

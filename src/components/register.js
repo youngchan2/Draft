@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../css/register.css";
 
 function Register() {
     const location = useLocation();
@@ -52,7 +53,7 @@ function Register() {
     }
 
     return (
-        <div>
+        <div className="register">
             <h1>선 수 등 록</h1>
             <p>선택한 옵션: {option ? `${option}vs${option}` : "null"}</p>
             <form onSubmit={handleSubmit}>
@@ -64,11 +65,11 @@ function Register() {
                 />
                 <button type="submit">+</button>
             </form>
-            <div>
+            <div className="register-players">
                 <h2>선수 목록</h2>
                 <ul>
                     {players.map((player, index) => (
-                        <li key={index}>
+                        <li className="register-player" key={index}>
                             {player}{" "}
                             <button onClick={() => deletePlayer(player)}>X</button>
                         </li>

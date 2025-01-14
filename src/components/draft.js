@@ -23,6 +23,23 @@ function Draft(){
         setIsTeam1Turn(!isTeam1Turn);
     }
     
+    const handleUndo = (team, player) => {
+        if ((team === 1 && isTeam1Turn) || (team === 2 && !isTeam1Turn)) {
+            alert("다른 팀의 차례입니다. 취소할 수 없습니다.");
+            return;
+        }
+
+        if(team === 1){
+            setTeam1((prev)=>prev.filter(p=>p!==player));
+        }
+        else{
+            setTeam2((prev)=>prev.filter(p=>p!==player));
+        }
+
+        setRemainPlayers((prev)=>[...prev, player]);
+        setIsTeam1Turn(team === 1);
+    };
+
     const handleNext = () => {
         navigate("/register/draft/formation", { state: { team1, team2 } });
     };
@@ -42,7 +59,7 @@ function Draft(){
                 <h2>Team 1</h2>
                 <ul>
                     {team1.map((player, index)=>(
-                        <li key={index} className={index===0 ? "captain1" :"t1-player1"}>{player} {index===0 && <span>(C)</span>}</li>
+                        <li key={index} className={index===0 ? "captain1" :"t1-player1"} onClick={()=>handleUndo(1, player)}>{player} {index===0 && <span>(C)</span>}</li>
                     ))}
                 </ul>
             </div>
@@ -65,7 +82,7 @@ function Draft(){
                 <h2>Team 2</h2>
                 <ul>
                     {team2.map((player, index)=>(
-                        <li key={index} className={index===0 ? "captain2" :"t2-player2"} >{player} {index===0 && <span>(C)</span>}</li>
+                        <li key={index} className={index===0 ? "captain2" :"t2-player2"} onClick={()=>handleUndo(2, player)} >{player} {index===0 && <span>(C)</span>}</li>
                     ))}
                 </ul>
             </div>

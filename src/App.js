@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home/>}></Route>
         <Route path="/register/:option" element={<Register/>}></Route>
         <Route path="/register/:option/draft" element={<Draft/>}></Route>
-        <Route path="/register/draft/formation" element={<Formation />}></Route>
+        <Route path="/register/:option/draft/formation" element={<Formation />}></Route>
         <Route path="/soccer" element={<Soccer/>}></Route>
         <Route path="/futsal" element={<Futsal/>}></Route>
         <Route path="/rift" element={<Rift/>}></Route>

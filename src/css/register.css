@@ -7,6 +7,21 @@
     padding: 0;
 }
 
+.register-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+.register-players-left
+.register-players-right{
+    width: 45%;
+    padding: 10px;
+}
+
 /* .register-player{
     padding: 10px;
     margin: 5px 0;

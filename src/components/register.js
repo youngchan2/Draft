@@ -88,6 +88,14 @@ function Register() {
         navigate("/");
     };
 
+    const handleReset = () => {
+        setPlayers([]);
+    }
+
+    const halfIndex = Math.ceil(players.length/2);
+    const leftRegister = players.slice(0, halfIndex);
+    const rightRegister = players.slice(halfIndex);
+
     return (
         <div className="register">
             <h1>선 수 등 록</h1>
@@ -102,17 +110,33 @@ function Register() {
                 <button type="submit">+</button>
             </form>
             <div className="register-players">
-                <h2>선수 목록</h2>
-                <ul>
-                    {players.map((player, index) => (
-                        <li className="register-player" key={index}>
-                            {player}{" "}
-                            <button onClick={() => deletePlayer(player)}>X</button>
-                        </li>
-                    ))}
-                </ul>
+                <h2>선수 목록 {players.length}명</h2>
+                <div className="register-list">
+                    <div className="register-players-left">
+                        <ul>
+                            {leftRegister.map((player, index) => (
+                                <li className="register-player" key={index}>
+                                    {player}{" "}
+                                    <button onClick={() => deletePlayer(player)}>X</button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="register-players-right">
+                        <ul>
+                            {rightRegister.map((player, index) => (
+                                <li className="register-player" key={index}>
+                                    {player}{" "}
+                                    <button onClick={() => deletePlayer(player)}>X</button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
             <button onClick={handlePrev}>이전</button>
+            <button onClick={handleReset}>초기화</button>
             <button onClick={handleNext} disabled={players.length !== 2 * saveOption}>
                 다음
             </button>

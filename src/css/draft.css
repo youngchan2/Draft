@@ -18,6 +18,15 @@
     height: 100%;
 }
 
+.order1{
+    background-color: blue;
+    color: white;
+}
+.order2{
+    background-color: red;
+    color: white;
+}
+
 .team1 h2{
     text-align: center;
     color: blue;
@@ -46,6 +55,21 @@
     /* border: 1px solid #ccc; */
     text-align: center;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remain-list {
+    display: flex; /* 가로 배치 */
+    justify-content: space-between; /* 두 div가 양옆에 배치 */
+    width: 100%; /* 전체 너비 차지 */
+}
+
+.remaining-players-left,
+.remaining-players-right {
+    width: 45%; /* 각 div가 화면의 절반을 차지 */
+    padding: 10px;
 }
 
 .remaining-players ul{

@@ -1,30 +1,43 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../css/formation.css";
+import html2canvas from "html2canvas";
+import Futsal from "../components/futsalfield";
+import { saveAs } from "file-saver";
 
 function Formation() {
     const navigate = useNavigate();
     const location = useLocation();
-    const team1 = location.state.team1;
-    const team2 = location.state.team2;
-    const savedOption = Number(localStorage.getItem("option"))||null;
+    const formationRef = useRef(null);
+    const {team1,team2, option} = location.state;
+    // const savedOption = Number(localStorage.getItem("option"))||null;
+
+    const getKey = (p) => {
+        if (p === 5) return "rift";
+        if (p === 6) return "futsal";
+        if (p === 11) return "soccer";
+        return null;
+    }
+    const key = getKey(option);
+    const storedData = key ? JSON.parse(localStorage.getItem(key)) : null;
+    const saveOption = storedData.option;
 
     const [positions, setPositions] = useState({
         team1: [
             { id: 1, name: `${team1[0]}(C)`, top: "30%", left: "40%" },
             { id: 2, name: team1[1], top: "60%", left: "40%" },
-            { id: 3, name: team1[2], top: "47%", left: "33%" },
+            { id: 3, name: team1[2], top: "45%", left: "31%" },
             { id: 4, name: team1[3], top: "60%", left: "25%" },
             { id: 5, name: team1[4], top: "30%", left: "25%" },
-            { id: 6, name: team1[5], top: "47%", left: "9.5%" },
+            { id: 6, name: team1[5], top: "45%", left: "13%" },
         ],
         team2: [
-            { id: 1, name: `${team2[0]}(C)`, top: "30%", left: "60%" },
-            { id: 2, name: team2[1], top: "60%", left: "60%" },
-            { id: 3, name: team2[2], top: "47%", left: "67%" },
-            { id: 4, name: team2[3], top: "60%", left: "75%" },
-            { id: 5, name: team2[4], top: "30%", left: "75%" },
-            { id: 6, name: team2[5], top: "47%", left: "85%" },
+            { id: 1, name: `${team2[0]}(C)`, top: "30%", left: "55%" },
+            { id: 2, name: team2[1], top: "60%", left: "55%" },
+            { id: 3, name: team2[2], top: "45%", left: "64%" },
+            { id: 4, name: team2[3], top: "60%", left: "70%" },
+            { id: 5, name: team2[4], top: "30%", left: "70%" },
+            { id: 6, name: team2[5], top: "45%", left: "81.5%" },
         ],
     });
 
@@ -62,15 +75,33 @@ function Formation() {
     };
 
     const handlePrev = () => {
-        navigate(`/register/${savedOption}/draft`);
+        navigate(`/register/${saveOption}/draft`, { state: { saveOption } });
     };
 
     const handleHome = () => {
         navigate("/");
     };
 
+    const handleSave = async()=>{
+        if(!formationRef.current) return;
+        try{
+            const canvas = await html2canvas(formationRef.current);
+            canvas.toBlob((blob)=>{
+                if(blob!==null){
+                    saveAs(blob, "formation.png");
+                }
+            });
+        }
+        catch(error){
+            console.error("이미지 저장 실패: ", error);
+        }
+    }
+
     return (
-        <div className="draft-background">
+        <div className="draft-background" ref={formationRef}>
+            <div className="formation-field">
+                <Futsal />
+            </div>
             <div className="fm-team1">
                 {positions.team1.map((player) => (
                     <div
@@ -104,6 +135,7 @@ function Formation() {
             <div className="fixed-button">
                 <button onClick={handlePrev}>이전</button>
                 <button onClick={handleHome}>홈</button>
+                <button onClick={handleSave}>저장</button>
             </div>
         </div>
     );

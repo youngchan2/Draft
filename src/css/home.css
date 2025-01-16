@@ -28,3 +28,52 @@
     background-color: #3e8e41;
     transform: scale(1);
 }
+
+.field-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    margin-top: 20px;
+    background-color: black;
+    border: 10px solid gold;
+}
+
+.field-container div:nth-child(2) {
+    margin-left: auto;
+    margin-right: auto; /* 두 번째 div를 가운데 배치 */
+}
+
+.title{
+    font-size: 20px;
+    color: white;
+}
+
+.field{
+    margin-top: 20px;
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    transform: scale(0.7);
+    transform-origin: top left;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.field:hover{
+    cursor: pointer;
+    /* border: 10px solid gold; */
+}
+
+.field:hover .field-outline{
+    stroke: #00ffff;
+}
+
+.field:hover .title{
+    color: #00ffff;
+}
+
+/* svg{
+    background-color: lightgray;
+} */

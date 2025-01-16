@@ -7,6 +7,7 @@ function Formation() {
     const location = useLocation();
     const team1 = location.state.team1;
     const team2 = location.state.team2;
+    const savedOption = Number(localStorage.getItem("option"))||null;
 
     const [positions, setPositions] = useState({
         team1: [
@@ -61,7 +62,7 @@ function Formation() {
     };
 
     const handlePrev = () => {
-        navigate("/register/draft");
+        navigate(`/register/${savedOption}/draft`);
     };
 
     const handleHome = () => {

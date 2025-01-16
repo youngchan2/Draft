@@ -5,7 +5,18 @@ import "../css/draft.css";
 function Draft(){
     const navigate = useNavigate();
     const location = useLocation();
-    const {players} = location.state || {};
+    const {saveOption} = location.state || {};
+
+    const getKey = (p) => {
+        if (p === 5) return "rift";
+        if (p === 6) return "futsal";
+        if (p === 11) return "soccer";
+        return null;
+    }
+    const key = getKey(saveOption);
+    const storedData = key ? JSON.parse(localStorage.getItem(key)) : null;
+    const option = storedData.option;
+    const players = storedData.players;
 
     const [remainPlayers, setRemainPlayers] = useState(players||[]);
     const [team1, setTeam1] = useState([]);
@@ -45,7 +56,7 @@ function Draft(){
     };
 
     const handlePrev = () =>{
-        navigate("/register");
+        navigate(`/register/${option}`, {state: {option}});
     }
 
     const handleHome = () =>{

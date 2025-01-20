@@ -12,7 +12,7 @@ function Home(){
     // };
 
     const onOption = (option)=>{
-        naviagte(`/register/${option}`, {state:{option}});
+        naviagte(`${process.env.PUBLIC_URL}/register/${option}`, {state:{option}});
     }
 
     return (

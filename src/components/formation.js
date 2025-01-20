@@ -75,11 +75,11 @@ function Formation() {
     };
 
     const handlePrev = () => {
-        navigate(`/register/${saveOption}/draft`, { state: { saveOption } });
+        navigate(`${process.env.PUBLIC_URL}/register/${saveOption}/draft`, { state: { saveOption } });
     };
 
     const handleHome = () => {
-        navigate("/");
+        navigate(`${process.env.PUBLIC_URL}/`);
     };
 
     const handleSave = async()=>{

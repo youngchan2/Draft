@@ -81,11 +81,11 @@ function Register() {
     };
 
     const handleNext = () => {
-        navigate(`/register/${saveOption}/draft`, { state: { saveOption } });
+        navigate(`${process.env.PUBLIC_URL}/register/${saveOption}/draft`, { state: { saveOption } });
     };
 
     const handlePrev = () => {
-        navigate("/");
+        navigate(`${process.env.PUBLIC_URL}/`);
     };
 
     const handleReset = () => {

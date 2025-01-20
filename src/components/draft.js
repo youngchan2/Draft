@@ -152,19 +152,19 @@ function Draft() {
 
     const handleNext = () => {
         if (option === 6) {
-        navigate(`/register/${option}/draft/formation`, { state: { team1, team2, option } });
+        navigate(`${process.env.PUBLIC_URL}/register/${option}/draft/formation`, { state: { team1, team2, option } });
         } else {
         alert("아직 안함");
-        navigate("/");
+        navigate(`${process.env.PUBLIC_URL}/`);
         }
     };
 
     const handlePrev = () => {
-        navigate(`/register/${option}`, { state: { option } });
+        navigate(`${process.env.PUBLIC_URL}/register/${option}`, { state: { option } });
     };
 
     const handleHome = () => {
-        navigate("/");
+        navigate(`${process.env.PUBLIC_URL}/`);
     };
 
     const handleReset = () => {

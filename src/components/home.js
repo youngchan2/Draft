@@ -17,8 +17,8 @@ function Home(){
 
     return (
         <div className="home">
-            <h1>드래프트</h1>
-            <p>원하는 종목을 선택하세요</p>
+            {/* <h1>드래프트</h1>
+            <p>원하는 종목을 선택하세요</p> */}
             {/* <div className="home-button">
                 <button className="home-option" onClick={()=>onClick(5)}>5 vs 5</button>
                 <button className="home-option" onClick={()=>onClick(6)}>6 vs 6</button>

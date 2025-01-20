@@ -2,7 +2,7 @@ import React from "react";
 
 const Rift = ({ bg1 = "#614a23", bg2 = "#c8aa6d" }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1215 800">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="511.828 282.841 238.369 238.592">
             {/* <path 
                 fill="#624c27" 
                 d="

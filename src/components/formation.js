@@ -100,8 +100,8 @@ function Formation() {
     return (
         <div className="draft-background" ref={formationRef}>
             <div className="formation-field">
-                <Futsal />
-            </div>
+                <Futsal/>
+            </div>  
             <div className="fm-team1">
                 {positions.team1.map((player) => (
                     <div

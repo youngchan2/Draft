@@ -90,6 +90,8 @@ function Register() {
 
     const handleReset = () => {
         setPlayers([]);
+        storedData.players = [];
+        localStorage.setItem(key, JSON.stringify(storedData));
     }
 
     const halfIndex = Math.ceil(players.length/2);

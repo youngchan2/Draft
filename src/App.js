@@ -13,14 +13,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/register/:option" element={<Register/>}></Route>
-        <Route path="/register/:option/draft" element={<Draft/>}></Route>
-        <Route path="/register/:option/draft/formation" element={<Formation />}></Route>
-        <Route path="/soccer" element={<Soccer/>}></Route>
-        <Route path="/futsal" element={<Futsal/>}></Route>
-        <Route path="/rift" element={<Rift/>}></Route>
-        <Route path="/draw" element={<Draw/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Home/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/register/:option`} element={<Register/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/register/:option/draft`} element={<Draft/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/register/:option/draft/formation`} element={<Formation />}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/soccer`} element={<Soccer/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/futsal`} element={<Futsal/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/rift`} element={<Rift/>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/draw`} element={<Draw/>}></Route>
       </Routes>
     </Router>
   );

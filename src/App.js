@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path={`${process.env.PUBLIC_URL}/`} element={<Home/>}></Route>
-        <Route path={`${process.env.PUBLIC_URL}/register/:option`} element={<Register/>}></Route>
+        <Route path={`/register/:option`} element={<Register/>}></Route>
         <Route path={`${process.env.PUBLIC_URL}/register/:option/draft`} element={<Draft/>}></Route>
         <Route path={`${process.env.PUBLIC_URL}/register/:option/draft/formation`} element={<Formation />}></Route>
         <Route path={`${process.env.PUBLIC_URL}/soccer`} element={<Soccer/>}></Route>
